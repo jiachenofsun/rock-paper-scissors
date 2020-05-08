@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Title</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+  <script>
+
+    function getRandomInt(max) {
+      return Math.floor(Math.random() * Math.floor(max));
+    }
+    function computerPlay() {
+      let computerChoice = getRandomInt(3);
+      if (computerChoice === 0) {
+        computerSelection = "rock";
+      }
+      else if (computerChoice === 1) {
+        computerSelection = "scissors";
+      }
+      else if (computerChoice === 2) {
+        computerSelection = "paper";
+      }
+      return computerSelection;
+    }
+    function oneRound() {
+      playerInput = prompt("Input either rock, paper or scissors");
+      computerSelection = computerPlay();
+      playerSelection = playerInput.toLowerCase();
+      console.log("The computer chose " + computerSelection)
+        if (
+          computerSelection == "paper" && playerSelection == "rock" ||
+          computerSelection == "rock" && playerSelection == "scissors" ||
+          computerSelection == "scissors" && playerSelection == "paper"
+          ) {
+          console.log("You Lose! " + computerSelection + " beats " + playerSelection);
+          return computerScore += 1;
+      
+        }
+        else if (
+          computerSelection == "scissors" && playerSelection == "rock" ||
+          computerSelection == "paper" && playerSelection == "scissors" ||
+          computerSelection == "rock" && playerSelection == "paper"
+          ) {
+          console.log("You Win! " + playerSelection + " beats " + computerSelection);
+          return playerScore += 1;
+        }
+        else if (computerSelection === playerSelection) {
+          console.log( "You Draw!");
+        }
+    }
+    function game() {
+      playerScore = 0, computerScore = 0;
+      oneRound();
+      oneRound();
+      oneRound();
+      oneRound();
+      oneRound();
+      return ("Final Score is " + playerScore + " - " + computerScore);
+    }
+
+  </script>
+</body>
+</html>
